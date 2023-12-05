@@ -12,15 +12,13 @@ export default function Home() {
     const [scale, setScale] = useState(4)
 
     const setCurrentPosition = () => {
-        if (typeof navigator !== "undefined" && navigator?.geolocation) {
-            navigator.geolocation.getCurrentPosition((position: any) => {
-                console.log(position)
-                setForm({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                })
+        navigator?.geolocation?.getCurrentPosition((position: any) => {
+            console.log("geolocation is here baby")
+            setForm({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
             })
-        }
+        })
     }
 
     useEffect(() => {
@@ -39,8 +37,8 @@ export default function Home() {
                 <a-scene vr-mode-ui='enabled: false'
                     arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
                     renderer='antialias: true; alpha: true'>
-                    <a-camera gps-new-camera='gpsMinDistance: 1'></a-camera>
-                    <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`} scale={`${scale} ${scale} ${scale}`}></a-entity>
+                    <a-camera gps-new-camera='gpsMinDistance: 2'></a-camera>
+                    <a-entity material='color: #ed42df' geometry='primitive: box' gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`} scale={`${scale} ${scale} ${scale}`}></a-entity>
 
                     {/* <a-entity material='color: red' geometry='primitive: box'
                               gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>"
