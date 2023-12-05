@@ -1,27 +1,45 @@
 'use client'
+
+import { useEffect, useState } from "react"
+import PaDaKaPanyHeader from "./PaDaKaPanyHeader"
+import CoordinatesForm from "./CoordinatesForm"
+
 export default function Home() {
+    const [form, setForm] = useState({
+        latitude: '',
+        longitude: '',
+    })
+
+    const setCurrentPosition = () => {
+        if (typeof navigator !== "undefined" && navigator?.geolocation) {
+            navigator.geolocation.getCurrentPosition((position: any) => {
+                console.log(position)
+                setForm({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                })
+            })
+        }
+    }
+
+    useEffect(() => {
+        setCurrentPosition()
+    }, [])
 
     if (typeof window === "undefined") {
         return null
     }
 
-
     return (
         <div style={{ height: "100vh", width: "100vw", margin: 0, overflow: "hidden" }}>
-            <h1 style={{
-                position: "fixed",
-                zIndex: 9999,
-                color: "#ed42df",
-                top: 10,
-                left: "50%",
-                transform: "translate(-50%,0)"
-            }}>PaDaKa Pany C==3</h1>
+            <PaDaKaPanyHeader />
+            <CoordinatesForm setForm={setForm} setCurrentPosition={setCurrentPosition} form={form} />
             <div style={{ height: "100%", width: "100%" }}>
                 <a-scene vr-mode-ui='enabled: false'
                     arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
                     renderer='antialias: true; alpha: true'>
                     <a-camera gps-new-camera='gpsMinDistance: 1'></a-camera>
-                    <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place="latitude: 52.235272; longitude: 20.985253" scale="10 10 10"></a-entity>
+                    <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`} scale="5 5 5"></a-entity>
 
                     {/* <a-entity material='color: red' geometry='primitive: box'
                               gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>"
