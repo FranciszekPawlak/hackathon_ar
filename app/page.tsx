@@ -37,8 +37,11 @@ export default function Home() {
                 <a-scene vr-mode-ui='enabled: false'
                     arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
                     renderer='antialias: true; alpha: true'>
-                    <a-camera gps-new-camera='gpsMinDistance: 2'></a-camera>
-                    <a-entity material='color: #ed42df' geometry='primitive: box' gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`} scale={`${scale} ${scale} ${scale}`}></a-entity>
+                    <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
+                    <a-entity material='color: #ed42df'
+                        geometry='primitive: box'
+                        gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`}
+                        scale={`${scale} ${scale} ${scale}`}></a-entity>
 
                     {/* <a-entity material='color: red' geometry='primitive: box'
                               gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>"

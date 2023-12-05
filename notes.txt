@@ -1,0 +1,16 @@
+if ("geolocation" in navigator) {
+  var watchId = navigator.geolocation.watchPosition(function(position) {
+    console.log("Aktualna pozycja: ", position.coords.latitude, position.coords.longitude);
+  }, function(error) {
+    console.error("Błąd pobierania lokalizacji: ", error);
+  }, {
+    enableHighAccuracy: true,
+    timeout: 1000, // maksymalny czas oczekiwania na pozycję
+    maximumAge: 0 // maksymalny wiek buforowanej pozycji
+  });
+
+  // Aby zatrzymać aktualizację, można użyć:
+  // navigator.geolocation.clearWatch(watchId);
+} else {
+  console.log("Geolokalizacja niedostępna");
+}
