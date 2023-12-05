@@ -33,11 +33,11 @@ export default function CoordinatesForm({ setForm, setCurrentPosition, form, sca
 
             <button style={{ backgroundColor: "#ed42df", color: "white", marginBottom: 20 }} onClick={setCurrentPosition}>restore current coords</button>
 
-            {!form.latitude && !form.longitude && <span style={{ backgroundColor: "gray", padding: "4px 8px" }}>No coordinates!!! (wait for shitty browser api if you clicked restore xD)</span>}
+            {!form.latitude && !form.longitude && <span style={{ backgroundColor: "gray", padding: "4px 8px", color: "white" }}>No coordinates!!! (wait for shitty browser api if you clicked restore xD)</span>}
 
-            {form.latitude && form.longitude && <span style={{ backgroundColor: "gray", padding: "4px 8px", marginBottom: 20 }}>{`latitude: ${form.latitude} longitude: ${form.longitude}`}</span>}
+            {form.latitude && form.longitude && <span style={{ backgroundColor: "gray", padding: "4px 8px", marginBottom: 20, color: "white" }}>{`latitude: ${form.latitude} longitude: ${form.longitude}`}</span>}
 
-            <span style={{ marginBottom: 10, marginTop: 20 }}>box scale: {scale}</span>
+            <span style={{ color: "white", marginBottom: 10, marginTop: 20 }}>box scale: {scale}</span>
             <button style={{ backgroundColor: "#ed42df", color: "white", marginBottom: 12 }} onClick={() => setScale((prev: any) => prev + 1)}>box size++</button>
             <button style={{ backgroundColor: "#ed42df", color: "white", marginBottom: 20 }} onClick={() => setScale((prev: any) => prev - 1)}>box size--</button>
 
