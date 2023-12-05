@@ -9,7 +9,7 @@ export default function Home() {
         latitude: '',
         longitude: '',
     })
-    const [scale, setScale] = useState(5)
+    const [scale, setScale] = useState(4)
 
     const setCurrentPosition = () => {
         if (typeof navigator !== "undefined" && navigator?.geolocation) {
