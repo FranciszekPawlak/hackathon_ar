@@ -1,5 +1,4 @@
 'use client'
-
 export default function Home() {
 
     if (typeof window === "undefined") {
@@ -7,9 +6,15 @@ export default function Home() {
     }
     return (
         <div style={{height: "100vh", width: "100vw", margin: 0, overflow: "hidden"}}>
-            <h1 style={{position: "fixed", zIndex:9999, color: "#ed42df", top: 10, left: "50%", transform: "translate(-50%,0)"}}>PaDaKa Pany C==3</h1>
+            <h1 style={{
+                position: "fixed",
+                zIndex: 9999,
+                color: "#ed42df",
+                top: 10,
+                left: "50%",
+                transform: "translate(-50%,0)"
+            }}>PaDaKa Pany C==3</h1>
             <div style={{height: "100%", width: "100%"}}>
-
                 <a-scene vr-mode-ui='enabled: false'
                          arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
                          renderer='antialias: true; alpha: true'>
