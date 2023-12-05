@@ -9,6 +9,7 @@ export default function Home() {
         latitude: '',
         longitude: '',
     })
+    const [scale, setScale] = useState(5)
 
     const setCurrentPosition = () => {
         if (typeof navigator !== "undefined" && navigator?.geolocation) {
@@ -33,13 +34,13 @@ export default function Home() {
     return (
         <div style={{ height: "100vh", width: "100vw", margin: 0, overflow: "hidden" }}>
             <PaDaKaPanyHeader />
-            <CoordinatesForm setForm={setForm} setCurrentPosition={setCurrentPosition} form={form} />
+            <CoordinatesForm setForm={setForm} setCurrentPosition={setCurrentPosition} form={form} scale={scale} setScale={setScale} />
             <div style={{ height: "100%", width: "100%" }}>
                 <a-scene vr-mode-ui='enabled: false'
                     arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
                     renderer='antialias: true; alpha: true'>
                     <a-camera gps-new-camera='gpsMinDistance: 1'></a-camera>
-                    <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`} scale="5 5 5"></a-entity>
+                    <a-entity material='color: red' geometry='primitive: box' gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`} scale={`${scale} ${scale} ${scale}`}></a-entity>
 
                     {/* <a-entity material='color: red' geometry='primitive: box'
                               gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>"
