@@ -15,24 +15,25 @@ export default function Page() {
                     <div style={{height: "100%", width: "100%"}}>
                         <a-scene
                             vr-mode-ui="enabled: false;"
-                            renderer="antialias: true; alpha: true; precision: mediump;"
+                            renderer="logarithmicDepthBuffer: true; precision: medium;"
                             embedded
-                            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+                            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
                         >
-                            
 
                             <a-nft
                                 type="nft"
-                                url="./qr"
+                                url="./qr/qr"
                                 smooth="true"
-                                smoothount="10"
-                                smoothtolerance="0.01"
-                                smooththreshold="5"
+                                smoothCount="10"
+                                smoothTolerance=".01"
+                                smoothThreshold="5"
                             >
-                                <a-entity material='color: #ed42df'
-                                          geometry='primitive: box'
-
-                                          scale="3 3 3"></a-entity>
+                                <a-entity
+                                    gltf-model="./square/Box.gltf"
+                                    scale="100 100 100"
+                                    position="0 0 0"
+                                >
+                                </a-entity>
                             </a-nft>
                             <a-entity camera></a-entity>
                         </a-scene>
