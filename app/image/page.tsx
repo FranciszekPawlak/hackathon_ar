@@ -19,7 +19,7 @@ export default function Page() {
                             <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
                             <a-nft
                                 type="nft"
-                                url="./a.jpg"
+                                url="./nft.iset"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
@@ -32,7 +32,7 @@ export default function Page() {
                             </a-nft>
                             <a-nft
                                 type="nft"
-                                url="./b.jpg"
+                                url="./qr.iset"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
@@ -42,32 +42,6 @@ export default function Page() {
                                           geometry='primitive: box'
                                           gps-new-entity-place="0 0 0"
                                           scale="5 5 5"></a-entity>
-                            </a-nft>
-                            <a-nft
-                                type="nft"
-                                url="./c.jpg"
-                                smooth="true"
-                                smoothCount="10"
-                                smoothTolerance=".01"
-                                smoothThreshold="5"
-                            >
-                                <a-entity material='color: #ed42df'
-                                          geometry='primitive: box'
-                                          gps-new-entity-place="0 0 0"
-                                          scale="5 5 5"></a-entity>
-                            </a-nft>
-                            <a-nft
-                                type="nft"
-                                url="./qr.png"
-                                smooth="true"
-                                smoothCount="10"
-                                smoothTolerance=".01"
-                                smoothThreshold="5"
-                            >
-                                <a-entity material='color: #ed42df'
-                                          geometry='primitive: box'
-                                          gps-new-entity-place="50 150 0"
-                                          scale="1 1 1"></a-entity>
                             </a-nft>
                         </a-scene>
                     </div>
