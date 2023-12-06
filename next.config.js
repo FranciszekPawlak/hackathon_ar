@@ -1,15 +1,13 @@
 /** @type {import('next').NextConfig} */
+
+//Yolo Driven Development
 const nextConfig = {
+    //xDDDDDDDDDDD <3
     typescript: {
-        // !! WARN !!
-        // Dangerously allow production builds to successfully complete even if
-        // your project has type errors.
-        // !! WARN !!
         ignoreBuildErrors: true,
     },
+    //xDDDDDDDDDDD <3 2
     eslint: {
-        // Warning: This allows production builds to successfully complete even if
-        // your project has ESLint errors.
         ignoreDuringBuilds: true,
     },
 }
