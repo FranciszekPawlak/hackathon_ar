@@ -12,9 +12,10 @@ export default function Page() {
             {typeof window !== "undefined" &&
                 <div style={{height: "100vh", width: "100vw", margin: 0, overflow: "hidden"}}>
                     <div style={{height: "100%", width: "100%"}}>
-                        <a-scene vr-mode-ui='enabled: false'
-                                 arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
-                                 renderer='antialias: true; alpha: true'>
+                        <a-scene vr-mode-ui="enabled: false;"
+                                 renderer="logarithmicDepthBuffer: true;"
+                                 embedded
+                                 arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
                             <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
                             <a-nft
                                 type="nft"
