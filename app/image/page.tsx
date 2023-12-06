@@ -19,7 +19,7 @@ export default function Page() {
                             <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
                             <a-nft
                                 type="nft"
-                                url="nft"
+                                url="./nft"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
@@ -32,7 +32,7 @@ export default function Page() {
                             </a-nft>
                             <a-nft
                                 type="nft"
-                                url="qr"
+                                url="./qr"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
