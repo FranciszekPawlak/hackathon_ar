@@ -1,5 +1,9 @@
 'use client'
 
+import a from "@/public/a.jpg"
+import b from "@/public/b.jpg"
+import c from "@/public/c.jpg"
+
 export default function Page() {
 
 
@@ -16,6 +20,45 @@ export default function Page() {
                                  arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false'
                                  renderer='antialias: true; alpha: true'>
                             <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
+                            <a-nft
+                                type="nft"
+                                url={a}
+                                smooth="true"
+                                smoothCount="10"
+                                smoothTolerance=".01"
+                                smoothThreshold="5"
+                            >
+                                <a-entity material='color: #ed42df'
+                                          geometry='primitive: box'
+                                          gps-new-entity-place="50 150 0"
+                                          scale="1 1 1"></a-entity>
+                            </a-nft>
+                            <a-nft
+                                type="nft"
+                                url={b}
+                                smooth="true"
+                                smoothCount="10"
+                                smoothTolerance=".01"
+                                smoothThreshold="5"
+                            >
+                                <a-entity material='color: #ed42df'
+                                          geometry='primitive: box'
+                                          gps-new-entity-place="50 150 0"
+                                          scale="1 1 1"></a-entity>
+                            </a-nft>
+                            <a-nft
+                                type="nft"
+                                url={c}
+                                smooth="true"
+                                smoothCount="10"
+                                smoothTolerance=".01"
+                                smoothThreshold="5"
+                            >
+                                <a-entity material='color: #ed42df'
+                                          geometry='primitive: box'
+                                          gps-new-entity-place="50 150 0"
+                                          scale="1 1 1"></a-entity>
+                            </a-nft>
                         </a-scene>
                     </div>
                 </div>}
