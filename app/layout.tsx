@@ -1,6 +1,8 @@
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
+import PaDaKaPanyHeader from "@/app/PaDaKaPanyHeader";
+import Link from 'next/link'
 
 const inter = Inter({subsets: ['latin']})
 
@@ -23,7 +25,14 @@ export default function RootLayout({
             <script type='text/javascript'
                     src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
         </head>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+        <Link href="/"><span
+            style={{textDecoration: "underline", position: "fixed", top: 10, left: 10, color: "white", zIndex: 9999}}>Location</span></Link>
+        <Link href="/marker"
+              style={{textDecoration: "underline", position: "fixed", top: 10, left: 100, color: "white", zIndex: 9999}}><span>Marker</span></Link>
+        <PaDaKaPanyHeader/>
+        {children}
+        </body>
         </html>
     )
 }

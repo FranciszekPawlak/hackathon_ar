@@ -1,6 +1,5 @@
 'use client'
 
-
 export default function CoordinatesForm({ setForm, setCurrentPosition, form, scale, setScale }: any) {
 
     const submit = (e: any) => {
@@ -12,7 +11,6 @@ export default function CoordinatesForm({ setForm, setCurrentPosition, form, sca
 
         })
     }
-
 
     return (
         <form onSubmit={submit} style={{

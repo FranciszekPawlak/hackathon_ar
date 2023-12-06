@@ -1,10 +1,9 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import PaDaKaPanyHeader from "./PaDaKaPanyHeader"
 import CoordinatesForm from "./CoordinatesForm"
 
-export default function Home() {
+export default function Page() {
     const [form, setForm] = useState({
         latitude: '',
         longitude: '',
@@ -31,7 +30,6 @@ export default function Home() {
 
     return (
         <div style={{ height: "100vh", width: "100vw", margin: 0, overflow: "hidden" }}>
-            <PaDaKaPanyHeader />
             <CoordinatesForm setForm={setForm} setCurrentPosition={setCurrentPosition} form={form} scale={scale} setScale={setScale} />
             <div style={{ height: "100%", width: "100%" }}>
                 <a-scene vr-mode-ui='enabled: false'
@@ -42,16 +40,6 @@ export default function Home() {
                         geometry='primitive: box'
                         gps-new-entity-place={`latitude: ${form.latitude}; longitude: ${form.longitude}`}
                         scale={`${scale} ${scale} ${scale}`}></a-entity>
-
-                    {/* <a-entity material='color: red' geometry='primitive: box'
-                              gps-new-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>"
-                              scale="10 10 10"></a-entity> */}
-                    {/* <a-marker type="pattern" url="path/to/your-pattern-marker.patt">
-                            <a-entity id="pointA" position="latitude: 52.235272; longitude: 20.985253"></a-entity>
-                            <a-entity id="pointB" position="latitude: 52.235274; longitude: 20.985213"></a-entity>
-                            <a-entity arrow="start: #pointA; end: #pointB;"></a-entity>
-                        </a-marker> */}
-
                 </a-scene>
             </div>
         </div>
