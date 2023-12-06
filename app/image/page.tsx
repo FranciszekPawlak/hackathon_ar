@@ -1,9 +1,5 @@
 'use client'
 
-import a from "@/public/a.jpg"
-import b from "@/public/b.jpg"
-import c from "@/public/c.jpg"
-
 export default function Page() {
 
 
@@ -22,7 +18,7 @@ export default function Page() {
                             <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
                             <a-nft
                                 type="nft"
-                                url={a}
+                                url="./a.jpg"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
@@ -35,7 +31,7 @@ export default function Page() {
                             </a-nft>
                             <a-nft
                                 type="nft"
-                                url={b}
+                                url="./b.jpg"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
@@ -48,7 +44,20 @@ export default function Page() {
                             </a-nft>
                             <a-nft
                                 type="nft"
-                                url={c}
+                                url="./c.jpg"
+                                smooth="true"
+                                smoothCount="10"
+                                smoothTolerance=".01"
+                                smoothThreshold="5"
+                            >
+                                <a-entity material='color: #ed42df'
+                                          geometry='primitive: box'
+                                          gps-new-entity-place="50 150 0"
+                                          scale="1 1 1"></a-entity>
+                            </a-nft>
+                            <a-nft
+                                type="nft"
+                                url="./qr.png"
                                 smooth="true"
                                 smoothCount="10"
                                 smoothTolerance=".01"
