@@ -27,8 +27,8 @@ export default function Page() {
                             >
                                 <a-entity material='color: #ed42df'
                                           geometry='primitive: box'
-                                          gps-new-entity-place="50 150 0"
-                                          scale="1 1 1"></a-entity>
+                                          gps-new-entity-place="0 0 0"
+                                          scale="5 5 5"></a-entity>
                             </a-nft>
                             <a-nft
                                 type="nft"
@@ -40,8 +40,8 @@ export default function Page() {
                             >
                                 <a-entity material='color: #ed42df'
                                           geometry='primitive: box'
-                                          gps-new-entity-place="50 150 0"
-                                          scale="1 1 1"></a-entity>
+                                          gps-new-entity-place="0 0 0"
+                                          scale="5 5 5"></a-entity>
                             </a-nft>
                             <a-nft
                                 type="nft"
@@ -53,8 +53,8 @@ export default function Page() {
                             >
                                 <a-entity material='color: #ed42df'
                                           geometry='primitive: box'
-                                          gps-new-entity-place="50 150 0"
-                                          scale="1 1 1"></a-entity>
+                                          gps-new-entity-place="0 0 0"
+                                          scale="5 5 5"></a-entity>
                             </a-nft>
                             <a-nft
                                 type="nft"
