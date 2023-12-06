@@ -15,7 +15,7 @@ export default function Page() {
                         <a-scene vr-mode-ui="enabled: false;"
                                  renderer="logarithmicDepthBuffer: true;"
                                  embedded
-                                 arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+                                 arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false; videoTexture: true;">
                             <a-camera gps-new-camera='gpsMinDistance: 0; gpsTimeInterval: 0'></a-camera>
                             <a-nft
                                 type="nft"
