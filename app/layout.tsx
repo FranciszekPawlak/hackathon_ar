@@ -16,20 +16,16 @@ export default function RootLayout({
                                    }: {
     children: React.ReactNode
 }) {
+    
     return (
         <html lang="en">
-        <head>
-            <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-            <script type='text/javascript'
-                    src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
-            <script type='text/javascript'
-                    src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
-        </head>
         <body className={inter.className}>
         <Link href="/"><span
-            style={{textDecoration: "underline", position: "fixed", top: 10, left: 10, color: "white", zIndex: 9999}}>Location</span></Link>
+            style={{textDecoration: "underline", position: "fixed", top: 40, left: 10, color: "white", zIndex: 9999}}>Location</span></Link>
         <Link href="/marker"
-              style={{textDecoration: "underline", position: "fixed", top: 10, left: 100, color: "white", zIndex: 9999}}><span>Marker</span></Link>
+              style={{textDecoration: "underline", position: "fixed", top: 40, left: 90, color: "white", zIndex: 9999}}><span>Marker</span></Link>
+        <Link href="/image"
+              style={{textDecoration: "underline", position: "fixed", top: 40, left: 162, color: "white", zIndex: 9999}}><span>Image</span></Link>
         <PaDaKaPanyHeader/>
         {children}
         </body>
