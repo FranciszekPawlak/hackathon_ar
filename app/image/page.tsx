@@ -38,10 +38,11 @@ export default function Page() {
                                 smoothTolerance=".01"
                                 smoothThreshold="5"
                             >
-                                <a-entity material='color: #ed42df'
-                                          geometry='primitive: box'
-                                          gps-new-entity-place="0 0 0"
-                                          scale="5 5 5"></a-entity>
+                                <a-entity
+                                    gltf-model="./square/Box.gltf"
+                                    scale="3 3 3"
+                                    position="0 0 0"
+                                ></a-entity>
                             </a-nft>
                         </a-scene>
                     </div>
