@@ -98,7 +98,6 @@ export default function Page() {
     }, [])
 
     React.useEffect(() => {
-        alert("init")
         navigator.geolocation.watchPosition((p) => {
             const { latitude, longitude } = p.coords
             setX({ x: latitude, y: longitude })
