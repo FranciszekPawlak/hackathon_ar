@@ -24,6 +24,7 @@ export default function Page() {
     const [fullScreen, setFullScreen] = React.useState(false)
     const [confetti, setConfetti] = React.useState(false)
     const [dist, setDist] = React.useState(0)
+    const [x, setX] = React.useState({ x: 0, y: 0 })
 
     const init = React.useRef(false)
 
@@ -100,6 +101,7 @@ export default function Page() {
         const id = setInterval(() => {
             navigator?.geolocation?.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords
+                setX({ x: latitude, y: longitude })
                 checkIsInArea(latitude, longitude)
             })
         }, 1000)
@@ -176,11 +178,20 @@ export default function Page() {
             <h1 style={{
                 position: "fixed",
                 zIndex: 9999,
-                left: "40%",
+                left: 20,
                 bottom: "50%",
                 color: "red",
-                fontSize: 40,
+                fontSize: 20,
             }}>{dist}</h1>
+
+            <h1 style={{
+                position: "fixed",
+                zIndex: 9999,
+                left: 20,
+                bottom: "40%",
+                color: "red",
+                fontSize: 20,
+            }}>{`${x.x}::::::${x.y}`}</h1>
         </>
 
     )
