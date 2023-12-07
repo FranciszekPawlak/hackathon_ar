@@ -25,6 +25,7 @@ export default function Page() {
     return (
         <>
             <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <script
                     src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
                 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -55,42 +56,38 @@ export default function Page() {
                 </a-scene>
 
             }
-            {mapVisible && <div style={{
+            {mapSize && <div style={{
                 position: "fixed",
-                bottom: 0,
                 left: 0,
-                zIndex: 9999,
+                top: 0,
+                zIndex: 9998, 
+                backgroundColor: "white", 
+                height: "100vh", 
                 width: "100vw",
-                height: mapSize ? "100vh" : "20vh",
-                backgroundColor: "white",
-                color: "red",
-                overflow: "scroll",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
             }}>
-                {mapSize ?
-                    <img style={{
-                        minWidth: "1500px",
-                        height: "auto",
-                        overflow: "scroll",
-                    }}
-                         src="./mapa.png"/> :
-                    <img style={{
-                        width: "auto",
-                        height: "20vh",
-                    }} src="./mapa.png"/>}
-                <button style={{
-                    position: mapSize ? "fixed" : "absolute",
-                    left: 10,
-                    top: 10,
-                    backgroundColor: "rgba(0,0,0,0.2)",
-                    color: "white",
-                    borderRadius: 10,
-                    padding: "4px 8px"
-                }} onClick={handleMapSize}>Fullscreen
-                </button>
-            </div>}
+                <img style={{
+
+                    width: "100vw",
+                    height: "auto",
+                    overflow: "scroll",
+
+                }}
+                     src="./mapa.png"/></div>}
+            {mapVisible && <button style={{
+                position: "fixed",
+                zIndex: 9999,
+                left: "50%",
+                bottom: 10,
+                backgroundColor: "rgba(0,0,0,0.1)",
+                transform: "translateX(-50%)",
+                color: "pink",
+                borderRadius: 10,
+                padding: "4px 8px"
+            }} onClick={handleMapSize}>Fullscreen
+            </button>}
         </>
 
     )
