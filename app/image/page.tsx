@@ -3,12 +3,12 @@
 import React from "react";
 
 export default function Page() {
-    const [mapVisible, setMapVisible] = React.useState(false)
+    const [mapVisible, setMapVisible] = React.useState(true)
     const [mapSize, setMapSize] = React.useState(false)
     const ref = React.useRef<any>(null)
-    
-    const handleMapSize = ()=>{
-        setMapSize((prev)=>!prev)
+
+    const handleMapSize = () => {
+        setMapSize((prev) => !prev)
     }
 
     React.useEffect(() => {
@@ -62,24 +62,35 @@ export default function Page() {
                 left: 0,
                 zIndex: 9999,
                 width: "100vw",
-                maxHeight: "20vh",
+                height: mapSize ? "100vh" : "20vh",
                 backgroundColor: "white",
                 color: "red",
+                overflow: "scroll",
                 display: "flex",
                 justifyContent: "center",
-                overflow: "scroll"
-                
+                alignItems: "center"
             }}>
-                <img style={{width: "auto", height: mapSize ? "100%" :"20vh", }} src="./mapa.png" />
+                {mapSize ?
+                    <img style={{
+                        minWidth: "1600px",
+                        height: "auto",
+                        overflow: "scroll",
+                    }}
+                         src="./mapa.png"/> :
+                    <img style={{
+                        width: "auto",
+                        height: "20vh",
+                    }} src="./mapa.png"/>}
                 <button style={{
-                    position: "absolute",
+                    position: mapSize ? "fixed" : "absolute",
                     left: 10,
                     top: 10,
                     backgroundColor: "rgba(0,0,0,0.2)",
                     color: "white",
                     borderRadius: 10,
                     padding: "4px 8px"
-                }} onClick={handleMapSize}>Fullscreen</button>
+                }} onClick={handleMapSize}>Fullscreen
+                </button>
             </div>}
         </>
 
