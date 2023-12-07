@@ -176,7 +176,7 @@ export default function Page() {
             <h1 style={{
                 position: "fixed",
                 zIndex: 9999,
-                left: "50%",
+                left: "40%",
                 bottom: "50%",
                 color: "red",
                 fontSize: 40,
