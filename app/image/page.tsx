@@ -23,6 +23,7 @@ export default function Page() {
     })
     const [fullScreen, setFullScreen] = React.useState(false)
     const [confetti, setConfetti] = React.useState(false)
+    const [dist, setDist] = React.useState(0)
 
     const init = React.useRef(false)
 
@@ -36,6 +37,7 @@ export default function Page() {
         console.log(lat, lon)
         const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
         console.log("dystanst od koordynat statycznych", distance)
+        setDist(distance)
         if (distance <= distanceToArea) {
             setConfetti(true)
             console.log(`Współrzędne mieszczą się w odległości +- ${distanceToArea}`);
@@ -175,6 +177,14 @@ export default function Page() {
             </button>}
 
             <Confetti run={confetti} />
+            <h1 style={{
+                position: "fixed",
+                zIndex: 9999,
+                left: "50%",
+                bottom: "50%",
+                color: "red",
+                fontSize: 40,
+            }}>{dist}</h1>
         </>
 
     )
