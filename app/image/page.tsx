@@ -1,6 +1,7 @@
 'use client'
 
 import React from "react";
+import './page.css';
 
 export default function Page() {
     const model = './buggy/Buggy.gltf'

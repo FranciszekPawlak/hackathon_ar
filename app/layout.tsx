@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import PaDaKaPanyHeader from "@/app/PaDaKaPanyHeader";
+import Footer from "@/app/Footer";
+import Header from "@/app/Header";
 import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,18 +20,13 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <Link href="/"><span
-                    style={{ textDecoration: "underline", position: "fixed", top: 40, left: 10, color: "white", zIndex: 9999 }}>Location</span></Link>
-                <Link href="/marker"
-                    style={{ textDecoration: "underline", position: "fixed", top: 40, left: 90, color: "white", zIndex: 9999 }}><span>Marker</span></Link>
-                <Link href="/image"
-                    style={{ textDecoration: "underline", position: "fixed", top: 40, left: 162, color: "white", zIndex: 9999 }}><span>Image</span></Link>
-                <Link href="/mindar"
-                    style={{ textDecoration: "underline", position: "fixed", top: 40, left: 222, color: "white", zIndex: 9999 }}><span>Mindar</span></Link>
-                <PaDaKaPanyHeader />
-                {children}
-            </body>
+            <Link href="/mindar">
+                <body className={inter.className}>
+                    <Header />
+                    <Footer />
+                    {children}
+                </body>
+            </Link>
         </html>
     )
 }
