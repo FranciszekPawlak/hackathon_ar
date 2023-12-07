@@ -30,12 +30,14 @@ export default function Page() {
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
-            latitude: 52.235273,
-            longitude: 20.985213
+            latitude: 52.232192,
+            longitude: 20.987904
         }
+        console.log(lat, lon)
         const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
         console.log("dystanst od koordynat statycznych", distance)
         if (distance <= distanceToArea) {
+            setConfetti(true)
             console.log(`Współrzędne mieszczą się w odległości +- ${distanceToArea}`);
         } else {
             console.log(`Współrzędne nie mieszczą się w odległości +- ${distanceToArea}`);
