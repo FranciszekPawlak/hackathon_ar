@@ -9,8 +9,8 @@ export default function Page() {
 
     useEffect(() => {
         const sceneEl = sceneRef.current;
-        const arSystem = sceneEl.systems["mindar-image-system"];
-        sceneEl.addEventListener('renderstart', () => {
+        const arSystem = sceneEl?.systems["mindar-image-system"];
+        sceneEl?.addEventListener('renderstart', () => {
             arSystem.start(); // start AR 
         });
         return () => {
@@ -22,7 +22,8 @@ export default function Page() {
     const Mindar = () => <>
         <a-scene ref={sceneRef} mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.mind; autoStart: false; uiLoading: no; uiError: no; uiScanning: no;" color-space="sRGB" embedded renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
             <a-assets>
-                <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
+                <img id="card" src="https://www.publicdomainpictures.net/pictures/130000/velka/red-box-background.jpg" />
+                {/* <img id="card" src="https://www.partridges.co.uk/pub/media/catalog/product/cache/c5704523795f2788cecb0fd6738ad131/r/e/red_box.jpg" /> */}
                 <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
             </a-assets>
 
@@ -36,6 +37,18 @@ export default function Page() {
 
     </>
 
+
+    const Mindar2 = () => <>
+        <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+            <a-entity mindar-image-target="targetIndex: 0">
+                <a-plane color="pink" opaciy="1" position="0 0 0" height="0.552" width="0.5" rotation="0 0 0"></a-plane>
+            </a-entity>
+        </a-scene>
+
+    </>
+
+
     return (
         <>
             <head>
@@ -46,7 +59,8 @@ export default function Page() {
 
             <div style={{ height: "100vh", width: "100vw", margin: 0, overflow: "hidden" }}>
                 <div style={{ height: "100%", width: "100%" }}>
-                    <Mindar />
+                    {/* <Mindar /> */}
+                    <Mindar2 />
                 </div>
 
 
