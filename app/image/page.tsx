@@ -25,7 +25,6 @@ export default function Page() {
     return (
         <>
             <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <script
                     src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
                 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
@@ -72,7 +71,7 @@ export default function Page() {
             }}>
                 {mapSize ?
                     <img style={{
-                        minWidth: "1600px",
+                        minWidth: "1500px",
                         height: "auto",
                         overflow: "scroll",
                     }}
