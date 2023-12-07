@@ -43,4 +43,7 @@
     opacity: 0.9;
     display: flex;
     justify-content: flex-start;
+    z-index: 999;
+    position: fixed;
+    top: 0;
 }
