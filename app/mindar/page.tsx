@@ -130,7 +130,7 @@ export default function Page() {
                 color: "white",
                 borderRadius: 10,
                 padding: "8px 16px"
-            }} onClick={() => setFullScreen((prev: any) => !prev)}>Show map
+            }} onClick={() => setFullScreen((prev: any) => !prev)}>{fullScreen ? "Hide map" :"Show map"}
             </button>}
         </>
 
