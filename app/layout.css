@@ -1,0 +1,46 @@
+.main {
+    font-family: Open Sans;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    font-size: 24px;
+}
+
+.main > a > .button {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    color: white;
+    padding: 8px 16px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid var(--gray_blue3, #C3DFE6);
+    background: var(--white, #FFF);
+    /* button_shadow */
+    box-shadow: 0px 1px 4px 0px rgba(81, 198, 203, 0.25);
+}
+
+
+.main > .footer {
+    background: #43B2E1;
+    width: 100%;
+    text-align: center;
+    opacity: 0.9;
+    position: fixed;
+    bottom: 0;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background: #43B2E1;
+    width: 100%;
+    padding: 16px 24px;
+    opacity: 0.9;
+    display: flex;
+    justify-content: flex-start;
+}

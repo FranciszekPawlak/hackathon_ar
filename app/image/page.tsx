@@ -1,12 +1,13 @@
 'use client'
 
 import React from "react";
+import './page.css';
 
 export default function Page() {
     const [mapVisible, setMapVisible] = React.useState(false)
     const [mapSize, setMapSize] = React.useState(false)
     const ref = React.useRef<any>(null)
-    
+
     const handleMapSize = ()=>{
         setMapSize((prev)=>!prev)
     }
@@ -56,20 +57,7 @@ export default function Page() {
                 </a-scene>
 
             }
-            {mapVisible && <div style={{
-                position: "fixed",
-                bottom: 0,
-                left: 0,
-                zIndex: 9999,
-                width: "100vw",
-                maxHeight: "20vh",
-                backgroundColor: "white",
-                color: "red",
-                display: "flex",
-                justifyContent: "center",
-                overflow: "scroll"
-                
-            }}>
+            {mapVisible && <div className="container">
                 <img style={{width: "auto", height: mapSize ? "100%" :"20vh", }} src="./mapa.png" />
                 <button style={{
                     position: "absolute",

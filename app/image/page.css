@@ -1,0 +1,13 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100vw;
+    max-height: 20vh;
+    background-color: white;
+    color: red;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+}
