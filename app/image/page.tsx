@@ -104,10 +104,6 @@ export default function Page() {
             })
         }, 1000)
 
-        if (confetti) {
-            clearInterval(id)
-        }
-
 
     }, [confetti])
 
