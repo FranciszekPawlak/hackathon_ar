@@ -8,8 +8,8 @@ export default function Page() {
     const [mapSize, setMapSize] = React.useState(false)
     const ref = React.useRef<any>(null)
 
-    const handleMapSize = ()=>{
-        setMapSize((prev)=>!prev)
+    const handleMapSize = () => {
+        setMapSize((prev) => !prev)
     }
 
     React.useEffect(() => {
@@ -57,18 +57,38 @@ export default function Page() {
                 </a-scene>
 
             }
-            {mapVisible && <div className="container">
-                <img style={{width: "auto", height: mapSize ? "100%" :"20vh", }} src="./mapa.png" />
-                <button style={{
-                    position: "absolute",
-                    left: 10,
-                    top: 10,
-                    backgroundColor: "rgba(0,0,0,0.2)",
-                    color: "white",
-                    borderRadius: 10,
-                    padding: "4px 8px"
-                }} onClick={handleMapSize}>Fullscreen</button>
-            </div>}
+            {mapSize && <div style={{
+                position: "fixed",
+                left: 0,
+                top: 0,
+                zIndex: 9998, 
+                backgroundColor: "white", 
+                height: "100vh", 
+                width: "100vw",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
+                <img style={{
+
+                    width: "100vw",
+                    height: "auto",
+                    overflow: "scroll",
+
+                }}
+                     src="./mapa.png"/></div>}
+            {(mapVisible || mapSize) && <button style={{
+                position: "fixed",
+                zIndex: 9999,
+                left: "50%",
+                bottom: 10,
+                backgroundColor: "rgba(0,0,0,0.1)",
+                transform: "translateX(-50%)",
+                color: "pink",
+                borderRadius: 10,
+                padding: "4px 8px"
+            }} onClick={handleMapSize}>Show map
+            </button>}
         </>
 
     )

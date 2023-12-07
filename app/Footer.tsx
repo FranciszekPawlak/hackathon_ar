@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <div className="main">
             <span className="footer">
-                by PaDaKa Pany C==3
+                by PaDaKa Pany
             </span>
         </div>
     )

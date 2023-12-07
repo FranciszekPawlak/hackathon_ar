@@ -6,7 +6,6 @@
     width: 100vw;
     max-height: 20vh;
     background-color: white;
-    color: red;
     display: flex;
     justify-content: center;
     overflow: scroll;
