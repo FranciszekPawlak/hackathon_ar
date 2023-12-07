@@ -31,8 +31,8 @@ export default function Page() {
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
-            latitude: 52.232192,
-            longitude: 20.987904
+            latitude: 52.235273,
+            longitude: 20.985207
         }
         console.log(lat, lon)
         const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
