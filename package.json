@@ -12,6 +12,7 @@
     "@ar-js-org/ar.js": "^3.4.5",
     "next": "14.0.3",
     "react": "^18",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18"
   },
   "devDependencies": {
