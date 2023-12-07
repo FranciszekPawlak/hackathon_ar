@@ -86,7 +86,7 @@ export default function Page() {
                 color: "pink",
                 borderRadius: 10,
                 padding: "4px 8px"
-            }} onClick={handleMapSize}>Fullscreen
+            }} onClick={handleMapSize}>Show map
             </button>}
         </>
 
