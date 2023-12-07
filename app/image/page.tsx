@@ -3,93 +3,105 @@
 import React from "react";
 
 export default function Page() {
+    const model = './buggy/Buggy.gltf'
+
     const [mapVisible, setMapVisible] = React.useState(false)
     const [mapSize, setMapSize] = React.useState(false)
-    const ref = React.useRef<any>(null)
+    const init = React.useRef(false)
+    
+    
 
     const handleMapSize = () => {
         setMapSize((prev) => !prev)
     }
 
     React.useEffect(() => {
-        if (ref?.current) {
-            ref.current.addEventListener('markerFound', () => {
-                if (!mapVisible) {
-                    setMapVisible(true)
-                }
+
+        const target = document.querySelector("#yolo")
+        
+        if (target && !init.current){
+            init.current = true
+            
+            console.log(target)
+
+            target.addEventListener("targetLost", () => {
+                console.log("lost")
+                setMapVisible(false)
             })
-            ref.current.addEventListener('markerLost', () => setMapVisible(false))
+
+            target.addEventListener('targetFound', () => {
+                console.log("found")
+                    setMapVisible(true)
+            })
+            
         }
-    }, [ref])
+    }, [])
+
+
+    const Mindar = () => <>
+        <a-scene  mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+            <a-assets >
+                <a-asset-item  id="avatarModel" src={model}></a-asset-item>
+            </a-assets>
+
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+            <a-entity  id="yolo" mindar-image-target="targetIndex: 0">
+                <a-gltf-model  rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-gltf-model>
+            </a-entity>
+        </a-scene>
+
+    </>
+
 
     return (
         <>
             <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <script
-                    src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-                <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+                <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
             </head>
-            {typeof window !== "undefined" &&
-                <a-scene
-                    vr-mode-ui="enabled: false;"
-                    renderer="logarithmicDepthBuffer: true; precision: best;"
-                    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-                >
-                    <a-nft
-                        ref={ref}
-                        type="nft"
-                        url="./qr/qr"
-                        smooth="true"
-                        smoothCount="10"
-                        smoothTolerance=".01"
-                        smoothThreshold="5"
-                    >
-                        <a-entity
-                            gltf-model="./square/Box.gltf"
-                            scale="100 100 100"
-                            position="0 0 0"
-                        ></a-entity>
 
-                    </a-nft>
-                    <a-camera></a-camera>
-                </a-scene>
+            <div style={{ height: "100vh", width: "100vw", margin: 0, overflow: "hidden" }}>
+                <div style={{ height: "100%", width: "100%" }}>
+                    <Mindar />
+                </div>
 
-            }
-            {mapSize && <div style={{
-                position: "fixed",
-                left: 0,
-                top: 0,
-                zIndex: 9998, 
-                backgroundColor: "white", 
-                height: "100vh", 
-                width: "100vw",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-            }}>
-                <img style={{
-
+                {mapSize && <div style={{
+                    position: "fixed",
+                    left: 0,
+                    top: 0,
+                    zIndex: 9998,
+                    backgroundColor: "white",
+                    height: "100vh",
                     width: "100vw",
-                    height: "auto",
-                    overflow: "scroll",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                    <img style={{
 
-                }}
-                     src="./mapa.png"/></div>}
-            {(mapVisible || mapSize) && <button style={{
-                position: "fixed",
-                zIndex: 9999,
-                left: "50%",
-                bottom: 10,
-                backgroundColor: "rgba(0,0,0,0.1)",
-                transform: "translateX(-50%)",
-                color: "pink",
-                borderRadius: 10,
-                padding: "4px 8px"
-            }} onClick={handleMapSize}>Show map
-            </button>}
+                        width: "100vw",
+                        height: "auto",
+                        overflow: "scroll",
+
+                    }}
+                         src="./mapa.png"/></div>}
+                {(mapVisible || mapSize) && <button style={{
+                    position: "fixed",
+                    zIndex: 9999,
+                    left: "50%",
+                    bottom: 10,
+                    backgroundColor: "rgba(0,0,0,0.1)",
+                    transform: "translateX(-50%)",
+                    color: "pink",
+                    borderRadius: 10,
+                    padding: "4px 8px"
+                }} onClick={handleMapSize}>Show map
+                </button>}
+            </div>
         </>
-
     )
 }
+
+
 
