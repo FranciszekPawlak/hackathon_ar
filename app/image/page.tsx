@@ -3,7 +3,7 @@
 import React from "react";
 
 export default function Page() {
-    const [mapVisible, setMapVisible] = React.useState(true)
+    const [mapVisible, setMapVisible] = React.useState(false)
     const [mapSize, setMapSize] = React.useState(false)
     const ref = React.useRef<any>(null)
 
