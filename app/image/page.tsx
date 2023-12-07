@@ -107,7 +107,7 @@ export default function Page() {
             alert("Włącz lokalizację")
         }, {
             enableHighAccuracy: true,
-            timeout: 5000,
+            timeout: 1000,
             maximumAge: 0,
         });
 
