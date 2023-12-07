@@ -98,7 +98,7 @@ export default function Page() {
     }, [])
 
     React.useEffect(() => {
-
+        alert("init")
         navigator.geolocation.watchPosition((p) => {
             const { latitude, longitude } = p.coords
             setX({ x: latitude, y: longitude })
@@ -106,8 +106,8 @@ export default function Page() {
         }, () => {
             alert("Włącz lokalizację")
         }, {
-            enableHighAccuracy: false,
-            timeout: 1000,
+            enableHighAccuracy: true,
+            timeout: 5000,
             maximumAge: 0,
         });
 
