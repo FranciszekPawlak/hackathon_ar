@@ -98,7 +98,7 @@ export default function Page() {
     }, [])
 
     React.useEffect(() => {
-        const id = setInterval(() => {
+        setInterval(() => {
             navigator?.geolocation?.getCurrentPosition((position) => {
                 const { latitude, longitude } = position.coords
                 setX({ x: latitude, y: longitude })
@@ -107,7 +107,7 @@ export default function Page() {
         }, 1000)
 
 
-    }, [confetti])
+    }, [])
 
     return (
         <>
