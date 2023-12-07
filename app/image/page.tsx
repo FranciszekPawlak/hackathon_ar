@@ -98,13 +98,18 @@ export default function Page() {
     }, [])
 
     React.useEffect(() => {
-        setInterval(() => {
-            navigator?.geolocation?.getCurrentPosition((position) => {
-                const { latitude, longitude } = position.coords
-                setX({ x: latitude, y: longitude })
-                checkIsInArea(latitude, longitude)
-            })
-        }, 1000)
+
+        navigator.geolocation.watchPosition((p) => {
+            const { latitude, longitude } = p.coords
+            setX({ x: latitude, y: longitude })
+            checkIsInArea(latitude, longitude)
+        }, () => {
+            alert("Włącz lokalizację")
+        }, {
+            enableHighAccuracy: false,
+            timeout: 1000,
+            maximumAge: 0,
+        });
 
 
     }, [])
