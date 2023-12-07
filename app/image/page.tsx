@@ -76,7 +76,7 @@ export default function Page() {
 
                 }}
                      src="./mapa.png"/></div>}
-            {mapVisible && <button style={{
+            {(mapVisible || mapSize) && <button style={{
                 position: "fixed",
                 zIndex: 9999,
                 left: "50%",
