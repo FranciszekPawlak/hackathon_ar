@@ -7,9 +7,9 @@ export default function Page() {
     const model2 = './arrow/padaka_lewo.gltf'
     const model3 = './arrow/recepcja_prawo.gltf'
 
-    const map1 = './mapa.png'
-    const map2 = './mapa.png'
-    const map3 = './mapa.png'
+    const map1 = './map1.png'
+    const map2 = './map2.png'
+    const map3 = './map3.png'
 
     const ref1 = React.useRef<any>(null)
     const ref2 = React.useRef<any>(null)
@@ -65,7 +65,7 @@ export default function Page() {
                 setMap((prev: any) => ({
                     ...prev,
                     visible: true,
-                    map: map2
+                    map: map3
                 }))
             })
         }
