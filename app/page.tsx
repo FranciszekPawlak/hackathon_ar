@@ -39,7 +39,7 @@ export default function Page() {
                 setMap((prev: any) => ({
                     ...prev,
                     visible: true,
-                    map: map1
+                    map: map2
                 }))
             })
             ref2.current.addEventListener("targetLost", () => {
@@ -52,7 +52,7 @@ export default function Page() {
                 setMap((prev: any) => ({
                     ...prev,
                     visible: true,
-                    map: map2
+                    map: map1
                 }))
             })
             ref3.current.addEventListener("targetLost", () => {
