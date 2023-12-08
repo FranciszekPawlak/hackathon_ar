@@ -28,7 +28,7 @@ export default function Page() {
 
     const init = React.useRef(false)
 
-    const distanceToArea = 10
+    const distanceToArea = 4
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
@@ -44,6 +44,7 @@ export default function Page() {
             console.log(`Współrzędne mieszczą się w odległości +- ${distanceToArea}`);
         } else {
             console.log(`Współrzędne nie mieszczą się w odległości +- ${distanceToArea}`);
+            setConfetti(false)
         }
     }
 
