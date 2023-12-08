@@ -10,8 +10,8 @@ export default function ConfettiComponent() {
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
-            latitude: 52.230221,
-            longitude: 20.981800
+            latitude: 52.230115,
+            longitude: 20.981293 //ostatni kot przy kuchni
         }
         console.log(lat, lon)
         const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
