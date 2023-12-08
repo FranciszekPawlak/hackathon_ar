@@ -61,9 +61,6 @@ const [finish, setFinish] = React.useState(false)
                     ...prev,
                     visible: false,
                 }))
-                setTimeout(()=>{
-                    setFinish(true)
-                }, 1500)
             })
             ref3.current.addEventListener("targetFound", () => {
                 setMap((prev: any) => ({
@@ -71,6 +68,9 @@ const [finish, setFinish] = React.useState(false)
                     visible: true,
                     map: map3
                 }))
+                setTimeout(()=>{
+                    setFinish(true)
+                }, 500)
             })
         }
 
