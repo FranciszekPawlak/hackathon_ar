@@ -2,7 +2,7 @@ import React from "react";
 import {getDistanceFromLatLonInM} from "./helper";
 import Confetti from 'react-confetti'
 
-const distanceToArea = 10
+const distanceToArea = 5
 
 
 export default function ConfettiComponent() {

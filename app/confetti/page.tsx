@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import ConfettiComponent from "@/app/Confetti";
+import Confetti from 'react-confetti'
 
 export default function Page() {
     const model1 = './arrow/padaka_lewo_recepcja_prawo.gltf'
@@ -21,7 +21,7 @@ export default function Page() {
         map: null
     })
     const [fullScreen, setFullScreen] = React.useState(false)
-
+const [finish, setFinish] = React.useState(false)
 
     const init = React.useRef(false)
 
@@ -61,6 +61,9 @@ export default function Page() {
                     ...prev,
                     visible: false,
                 }))
+                setTimeout(()=>{
+                    setFinish(true)
+                }, 3000)
             })
             ref3.current.addEventListener("targetFound", () => {
                 setMap((prev: any) => ({
@@ -139,7 +142,7 @@ export default function Page() {
                 padding: "8px 16px"
             }} onClick={() => setFullScreen((prev: any) => !prev)}>{fullScreen ? "Hide map" : "Show map"}
             </button>}
-            <ConfettiComponent/>
+            <Confetti run={finish}/>
         </>
 
     )
