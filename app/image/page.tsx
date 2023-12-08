@@ -28,12 +28,12 @@ export default function Page() {
 
     const init = React.useRef(false)
 
-    const distanceToArea = 30
+    const distanceToArea = 10
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
-            latitude: 52.230229,
-            longitude: 20.981732
+            latitude: 52.230221,
+            longitude: 20.981800
         }
         console.log(lat, lon)
         const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
