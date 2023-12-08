@@ -1,6 +1,7 @@
 'use client'
 
 import React from "react";
+import ConfettiComponent from "@/app/Confetti";
 
 export default function Page() {
     const model1 = './arrow/padaka_lewo_recepcja_prawo.gltf'
@@ -21,52 +22,57 @@ export default function Page() {
     })
     const [fullScreen, setFullScreen] = React.useState(false)
 
+
     const init = React.useRef(false)
 
-    const [mapVisible, setMapVisible] = React.useState(false)
 
     React.useEffect(() => {
         if (!init.current) {
-            console.log("add listeners")
             init.current = true
 
             ref1.current.addEventListener("targetLost", () => {
-                setMap((prev: any)=>({
+                setMap((prev: any) => ({
                     ...prev,
                     visible: false,
                 }))
             })
             ref1.current.addEventListener("targetFound", () => {
-                setMap((prev: any)=>({
+                setMap((prev: any) => ({
                     ...prev,
                     visible: true,
                     map: map1
-                }))            })
+                }))
+            })
             ref2.current.addEventListener("targetLost", () => {
-                setMap((prev: any)=>({
+                setMap((prev: any) => ({
                     ...prev,
                     visible: false,
-                }))            })
+                }))
+            })
             ref2.current.addEventListener("targetFound", () => {
-                setMap((prev: any)=>({
+                setMap((prev: any) => ({
                     ...prev,
                     visible: true,
                     map: map2
-                }))               })
+                }))
+            })
             ref3.current.addEventListener("targetLost", () => {
-                setMap((prev: any)=>({
+                setMap((prev: any) => ({
                     ...prev,
                     visible: false,
-                }))            })
+                }))
+            })
             ref3.current.addEventListener("targetFound", () => {
-                setMap((prev: any)=>({
+                setMap((prev: any) => ({
                     ...prev,
                     visible: true,
                     map: map2
-                }))               })
+                }))
+            })
         }
 
     }, [])
+
 
     return (
         <>
@@ -130,8 +136,9 @@ export default function Page() {
                 color: "white",
                 borderRadius: 10,
                 padding: "8px 16px"
-            }} onClick={() => setFullScreen((prev: any) => !prev)}>{fullScreen ? "Hide map" :"Show map"}
+            }} onClick={() => setFullScreen((prev: any) => !prev)}>{fullScreen ? "Hide map" : "Show map"}
             </button>}
+            <ConfettiComponent/>
         </>
 
     )

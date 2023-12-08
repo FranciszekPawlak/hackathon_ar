@@ -1,8 +1,6 @@
 'use client'
 
 import React from "react";
-import { getDistanceFromLatLonInM } from "./helper";
-import Confetti from 'react-confetti'
 
 export default function Page() {
     const model1 = './arrow/padaka_lewo_recepcja_prawo.gltf'
@@ -22,26 +20,9 @@ export default function Page() {
         map: null
     })
     const [fullScreen, setFullScreen] = React.useState(false)
-    const [confetti, setConfetti] = React.useState(false)
+
 
     const init = React.useRef(false)
-
-    const distanceToArea = 10
-
-    const checkIsInArea = (lat: any, lon: any) => {
-        const destination = {
-            latitude: 52.230221,
-            longitude: 20.981800
-        }
-        console.log(lat, lon)
-        const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
-        if (distance <= distanceToArea) {
-            setConfetti(true)
-        } else {
-            setConfetti(false)
-        }
-    }
-
 
 
     React.useEffect(() => {
@@ -91,20 +72,7 @@ export default function Page() {
 
     }, [])
 
-    React.useEffect(() => {
-        navigator.geolocation.watchPosition((p) => {
-            const { latitude, longitude } = p.coords
-            checkIsInArea(latitude, longitude)
-        }, () => {
-            console.log("turn on gps")
-        }, {
-            enableHighAccuracy: true,
-            timeout: 1000,
-            maximumAge: 0,
-        });
 
-
-    }, [])
 
     return (
         <>
@@ -170,8 +138,6 @@ export default function Page() {
                 padding: "8px 16px"
             }} onClick={() => setFullScreen((prev: any) => !prev)}>{fullScreen ? "Hide map" : "Show map"}
             </button>}
-
-            <Confetti run={confetti} />
         </>
 
     )
