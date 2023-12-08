@@ -2,7 +2,7 @@ import React from "react";
 import {getDistanceFromLatLonInM} from "./helper";
 import Confetti from 'react-confetti'
 
-const distanceToArea = 15
+const distanceToArea = 10
 
 
 export default function ConfettiComponent() {
@@ -10,8 +10,8 @@ export default function ConfettiComponent() {
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
-            latitude: 52.230115,
-            longitude: 20.981293 //ostatni kot przy kuchni
+            latitude: 52.230136,
+            longitude: 20.981345 //ostatni kot przy kuchni
         }
         console.log(lat, lon)
         const distance = getDistanceFromLatLonInM(destination.latitude, destination.longitude, lat, lon);
