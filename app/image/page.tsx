@@ -28,7 +28,7 @@ export default function Page() {
 
     const init = React.useRef(false)
 
-    const distanceToArea = 4
+    const distanceToArea = 10
 
     const checkIsInArea = (lat: any, lon: any) => {
         const destination = {
